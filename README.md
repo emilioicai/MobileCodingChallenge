@@ -7,7 +7,7 @@ There are **4** task, **2** must be solved in any way. There is no fixed Solutio
 First, please fork this repository, then develop the code in the forked repository and when you're done, send us an email to cc@wirvonhier.de
 
 
-Tasks:
+### Tasks:
 - style the app suitable (difficulty lvl 1)
 - expand the app to redux (difficulty lvl 2)
 - write some native code/component and hook up this code/component in react native (difficulty lvl 8)
