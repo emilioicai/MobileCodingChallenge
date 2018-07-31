@@ -22,6 +22,10 @@ First, please fork this repository, then develop the code in the forked reposito
 
 ### Befehle:
 
+**yarn install**
+
+Installs all packages and dependencys
+
 **yarn start**
 
 Starts the development server so you can open your app in the Expo app on your phone.
