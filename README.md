@@ -2,7 +2,7 @@
 
 Hello :)
 
-There are **4** task, **2** must be solved in any way. There is no fixed Solution or Way - you just have to explain it.
+There are **4** tasks, **2** must be solved in any way. There is no fixed Solution or Way - you just have to explain it.
 
 First, please fork this repository, then develop the code in the forked repository and when you're done, send us an email to cc@wirvonhier.de
 
