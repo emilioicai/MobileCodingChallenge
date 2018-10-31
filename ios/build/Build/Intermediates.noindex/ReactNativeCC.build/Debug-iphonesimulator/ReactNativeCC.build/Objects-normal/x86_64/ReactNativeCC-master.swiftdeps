@@ -1,5 +1,0 @@
-version: "Apple Swift version 4.1.2 (swiftlang-902.0.54 clang-902.0.39.2)"
-options: "e6ddaf2102051c6f721541da7e8e4847"
-build_time: [1533045541, 783671000]
-inputs:
-  "/Users/michaelholst/Documents/CodingChallenges/ReactNativeCC/ios/CounterViewManager.swift": [1533045294, 0]

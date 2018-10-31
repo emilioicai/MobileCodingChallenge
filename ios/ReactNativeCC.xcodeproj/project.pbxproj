@@ -37,6 +37,13 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		AB4C5B02218232B20018E6C5 /* RNTCustomViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4C5ADC218232B20018E6C5 /* RNTCustomViewManager.m */; };
+		AB4C5B102182334D0018E6C5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4C5B0F2182334D0018E6C5 /* MapKit.framework */; };
+		AB82A50821864C1300125B97 /* SPSketchPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = AB82A4FC21864C1300125B97 /* SPSketchPoint.m */; };
+		AB82A50C21864C1300125B97 /* UIBezierPathSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = AB82A50221864C1300125B97 /* UIBezierPathSerialization.m */; };
+		AB82A50D21864C1300125B97 /* SketchControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AB82A50321864C1300125B97 /* SketchControl.m */; };
+		AB82A50E21864C1300125B97 /* SketchControlUsingUIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = AB82A50721864C1300125B97 /* SketchControlUsingUIKit.m */; };
+		AB82A51121864CA000125B97 /* SPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB82A50F21864CA000125B97 /* SPUser.m */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 /* End PBXBuildFile section */
 
@@ -342,6 +349,19 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		AB4C5ADC218232B20018E6C5 /* RNTCustomViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RNTCustomViewManager.m; path = ReactNativeCC/RNTCustomViewManager.m; sourceTree = "<group>"; };
+		AB4C5B0F2182334D0018E6C5 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AB82A4FC21864C1300125B97 /* SPSketchPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSketchPoint.m; sourceTree = "<group>"; };
+		AB82A4FE21864C1300125B97 /* SketchControlDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchControlDelegate.h; sourceTree = "<group>"; };
+		AB82A50121864C1300125B97 /* SketchControlUsingUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchControlUsingUIKit.h; sourceTree = "<group>"; };
+		AB82A50221864C1300125B97 /* UIBezierPathSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIBezierPathSerialization.m; sourceTree = "<group>"; };
+		AB82A50321864C1300125B97 /* SketchControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchControl.m; sourceTree = "<group>"; };
+		AB82A50421864C1300125B97 /* SPSketchPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSketchPoint.h; sourceTree = "<group>"; };
+		AB82A50521864C1300125B97 /* SketchControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SketchControl.h; sourceTree = "<group>"; };
+		AB82A50621864C1300125B97 /* UIBezierPathSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBezierPathSerialization.h; sourceTree = "<group>"; };
+		AB82A50721864C1300125B97 /* SketchControlUsingUIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SketchControlUsingUIKit.m; sourceTree = "<group>"; };
+		AB82A50F21864CA000125B97 /* SPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPUser.m; sourceTree = "<group>"; };
+		AB82A51021864CA000125B97 /* SPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPUser.h; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -362,6 +382,7 @@
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
+				AB4C5B102182334D0018E6C5 /* MapKit.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
@@ -489,6 +510,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				AB4C5ADC218232B20018E6C5 /* RNTCustomViewManager.m */,
+				AB82A4FB21864C1300125B97 /* Sketch */,
 			);
 			name = ReactNativeCC;
 			sourceTree = "<group>";
@@ -519,6 +542,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB4C5B0F2182334D0018E6C5 /* MapKit.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 			);
 			name = Frameworks;
@@ -593,6 +617,25 @@
 				2D02E4901E0B4A5D006451C7 /* ReactNativeCC-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		AB82A4FB21864C1300125B97 /* Sketch */ = {
+			isa = PBXGroup;
+			children = (
+				AB82A50521864C1300125B97 /* SketchControl.h */,
+				AB82A50321864C1300125B97 /* SketchControl.m */,
+				AB82A4FE21864C1300125B97 /* SketchControlDelegate.h */,
+				AB82A50121864C1300125B97 /* SketchControlUsingUIKit.h */,
+				AB82A50721864C1300125B97 /* SketchControlUsingUIKit.m */,
+				AB82A50421864C1300125B97 /* SPSketchPoint.h */,
+				AB82A4FC21864C1300125B97 /* SPSketchPoint.m */,
+				AB82A51021864CA000125B97 /* SPUser.h */,
+				AB82A50F21864CA000125B97 /* SPUser.m */,
+				AB82A50621864C1300125B97 /* UIBezierPathSerialization.h */,
+				AB82A50221864C1300125B97 /* UIBezierPathSerialization.m */,
+			);
+			name = Sketch;
+			path = ReactNativeCC/Sketch;
 			sourceTree = "<group>";
 		};
 		ADBDB9201DFEBF0600ED6528 /* Products */ = {
@@ -694,6 +737,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 0940;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1118,7 +1166,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				AB82A50821864C1300125B97 /* SPSketchPoint.m in Sources */,
+				AB4C5B02218232B20018E6C5 /* RNTCustomViewManager.m in Sources */,
+				AB82A50C21864C1300125B97 /* UIBezierPathSerialization.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				AB82A51121864CA000125B97 /* SPUser.m in Sources */,
+				AB82A50E21864C1300125B97 /* SketchControlUsingUIKit.m in Sources */,
+				AB82A50D21864C1300125B97 /* SketchControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
