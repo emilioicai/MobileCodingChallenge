@@ -1,27 +1,34 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  Button
-} from "react-native";
-import { reasons, missesImages, alphabet, fonts } from "../constants";
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { reasons, missesImages, alphabet } from "../constants";
 import { connect } from "react-redux";
 import { selectLetter } from "../ducks";
-import { black } from "ansi-colors";
 
 class GameScreen extends React.Component {
   renderImageContainer = () => {
     let misses = parseInt(this.props.misses);
     return (
-      <View style={styles.imageContainer}>
-        <Text>you are in level {this.props.currentReason + 1}</Text>
-        <Image
-          style={{ width: 50, height: 50 }}
-          source={missesImages[misses]}
-        />
+      <View style={styles.topContainer}>
+        <View
+          style={{
+            width: "20%",
+            marginTop: 60
+          }}
+        >
+          <Text style={{ color: "#ff8533" }}>
+            LEVEL: {this.props.currentReason + 1}
+          </Text>
+          <Text style={{ color: "#ff0000", marginTop: 5 }}>
+            MISSES: {this.props.misses}
+          </Text>
+        </View>
+        <View style={styles.imageContainer}>
+          <Image
+            resizeMode="contain"
+            style={styles.imageTop}
+            source={missesImages[misses]}
+          />
+        </View>
       </View>
     );
   };
@@ -37,7 +44,9 @@ class GameScreen extends React.Component {
             } else {
               return (
                 <View key={i} style={styles.containerLetter}>
-                  <Text>{letter.toUpperCase()}</Text>
+                  <Text style={{ color: "#ffffff" }}>
+                    {letter.toUpperCase()}
+                  </Text>
                 </View>
               );
             }
@@ -87,8 +96,12 @@ class GameScreen extends React.Component {
           {alphabet.map((letter, i) => {
             if (selectedLetters.indexOf(letter) > -1) {
               return (
-                <TouchableOpacity key={i} style={styles.button}>
-                  <Text style={{ color: "red" }}>{letter.toUpperCase()}</Text>
+                <TouchableOpacity
+                  disabled={true}
+                  key={i}
+                  style={styles.buttonOnpress}
+                >
+                  <Text style={{ color: "grey" }}>{letter.toUpperCase()}</Text>
                 </TouchableOpacity>
               );
             } else {
@@ -100,7 +113,7 @@ class GameScreen extends React.Component {
                     this.onLetterPress(letter);
                   }}
                 >
-                  <Text style={{ color: "blue" }}>{letter.toUpperCase()}</Text>
+                  <Text style={{ color: "black" }}>{letter.toUpperCase()}</Text>
                 </TouchableOpacity>
               );
             }
@@ -123,15 +136,33 @@ class GameScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "blue",
+    backgroundColor: "#fff",
     justifyContent: "center"
-    //alignItems: "center"
+  },
+  topContainer: {
+    flex: 1,
+    flexDirection: "row",
+
+    backgroundColor: "#fff"
+  },
+  imageContainer: {
+    height: "100%",
+    width: "80%",
+    backgroundColor: "#fff",
+    alignItems: "center",
+    backgroundColor: "blue"
+  },
+  imageTop: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    bottom: 0,
+    backgroundColor: "#fff"
   },
   ContainerMiddle: {
     height: "20%",
-    backgroundColor: "pink",
+    backgroundColor: "#ffffff",
     alignItems: "center",
-    //flexDirection: "row",
     justifyContent: "center"
   },
   reasonContainer: {
@@ -141,27 +172,22 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   containerLetter: {
-    // width: 30,
-    // marginRight: 5,
-    // borderBottomColor: "black",
-    // borderBottomWidth: 2
     width: 40,
     height: 40,
     alignItems: "center",
-    backgroundColor: "#DDDDDD",
+    backgroundColor: "#3d3d5c",
     justifyContent: "center",
     margin: 5,
-    borderRadius: 5
+    borderRadius: 5,
+    shadowColor: "#000",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.8
+    //shadowRadius: 2
   },
-  imageContainer: {
-    height: "40%",
-    backgroundColor: "white",
-    alignItems: "center",
-    justifyContent: "center"
-  },
+
   containerBottom: {
-    height: "40%",
-    backgroundColor: "green",
+    height: "30%",
+    backgroundColor: "#ffffff",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -175,10 +201,28 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     alignItems: "center",
+    backgroundColor: "transparent",
+    borderStyle: "solid",
+    borderWidth: 3,
+    borderColor: "#660033",
+    justifyContent: "center",
+    margin: 5,
+    borderRadius: 5,
+    shadowColor: "#660033",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.8
+  },
+  buttonOnpress: {
+    width: 40,
+    height: 40,
+    alignItems: "center",
     backgroundColor: "#DDDDDD",
     justifyContent: "center",
     margin: 5,
-    borderRadius: 5
+    borderRadius: 5,
+    shadowColor: "#DDDDDD",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.8
   }
 });
 

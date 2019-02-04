@@ -32,7 +32,7 @@ class HomeScreen extends React.Component {
             style={styles.button}
             onPress={() => this.onPressNewGame()}
           >
-            <Text> new Game </Text>
+            <Text style={{ color: "#ffffff", fontSize: 20 }}> New Game </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
@@ -40,7 +40,7 @@ class HomeScreen extends React.Component {
               this.props.navigation.navigate("Instructions");
             }}
           >
-            <Text> How to play </Text>
+            <Text style={{ color: "#ffffff", fontSize: 20 }}>How to play </Text>
           </TouchableOpacity>
         </View>
 
@@ -56,7 +56,6 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "blue",
     alignItems: "stretch",
     justifyContent: "flex-start"
   },
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
     height: "35%",
     paddingTop: 70,
     paddingBottom: 70,
-    backgroundColor: "#f9e6ff",
+    backgroundColor: "#ffffff",
     alignItems: "center",
     justifyContent: "center"
   },
@@ -77,22 +76,24 @@ const styles = StyleSheet.create({
 
   button: {
     alignItems: "center",
-    //backgroundColor: "#80d4ff",
-    backgroundColor: "transparent",
-    padding: 15,
+    backgroundColor: "#ff8533",
+    padding: 10,
     marginVertical: 5,
-    width: 200,
-    borderColor: "#ff9966",
+    width: "50%",
+    borderColor: "#ff8533",
     borderStyle: "solid",
     borderWidth: 3,
-    borderRadius: 6
+    borderRadius: 6,
+    shadowColor: "#000",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.8
   },
   imageBottom: {
     width: "100%",
     height: "30%",
     position: "absolute",
     bottom: 0,
-    backgroundColor: "#f9e6ff"
+    backgroundColor: "#ffffff"
   }
 });
 

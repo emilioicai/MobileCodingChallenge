@@ -1,4 +1,4 @@
-export const reasons = ["abc", "cde", "fun"];
+export const reasons = ["motivated", "persistent", "fun"];
 export const maxMisses = 6;
 export const missesImages = [
   require("./assets/images/misses0.png"),
@@ -10,9 +10,6 @@ export const missesImages = [
   require("./assets/images/misses6.png")
 ];
 
-export const fonts = {
-  Merienda: "Merienda-Regular"
-};
 export const alphabet = [
   "a",
   "b",
