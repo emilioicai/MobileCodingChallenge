@@ -1,3 +1,3 @@
-import { AppRegistry } from 'react-native';
-import App from './App';
-AppRegistry.registerComponent('ReactNativeCC', () => App);
+import { AppRegistry } from "react-native";
+import App from "./Containers/App";
+AppRegistry.registerComponent("ReactNativeCC", () => App);
