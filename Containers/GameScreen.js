@@ -5,7 +5,8 @@ import {
   View,
   Image,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
+  Alert
 } from "react-native";
 import { reasons, missesImages, alphabet } from "../constants";
 import { connect } from "react-redux";
@@ -18,16 +19,11 @@ class GameScreen extends React.Component {
     let misses = parseInt(this.props.misses);
     return (
       <View style={styles.topContainer}>
-        <View
-          style={{
-            width: "20%",
-            marginTop: 60
-          }}
-        >
-          <Text style={{ color: "#ff8533" }}>
+        <View style={styles.textTopContainer}>
+          <Text style={{ color: "#ff8533", fontWeight: "bold" }}>
             LEVEL: {this.props.currentReason + 1}
           </Text>
-          <Text style={{ color: "#ff0000", marginTop: 5 }}>
+          <Text style={{ color: "#ff0000", marginTop: 5, fontWeight: "bold" }}>
             MISSES: {this.props.misses}
           </Text>
         </View>
@@ -76,7 +72,11 @@ class GameScreen extends React.Component {
       nextProps.currentReason < reasons.length - 1 &&
       this.props.currentReason === 0
     ) {
-      alert("well done! ready  for the  next level?");
+      Alert.alert(
+        "Hey, Well Done!",
+        "buff, it  was easy let's go to the nex level!",
+        [{ text: "sure!", onPress: () => console.log("OK Pressed") }]
+      );
     }
     if (
       nextProps.currentReason !== this.props.currentReason &&
@@ -154,6 +154,11 @@ const styles = StyleSheet.create({
 
     backgroundColor: "#fff"
   },
+  textTopContainer: {
+    width: "20%",
+    marginTop: 40,
+    marginLeft: 10
+  },
   imageContainer: {
     height: "100%",
     width: "80%",
@@ -190,8 +195,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     shadowColor: "#000",
     shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.8
-    //shadowRadius: 2
+    shadowOpacity: 0.8,
+    elevation: 1
   },
 
   containerBottom: {
@@ -218,8 +223,9 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 5,
     shadowColor: "#660033",
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.8
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.8,
+    elevation: 1
   },
   buttonOnpress: {
     width: largePhone ? 40 : 30,
@@ -230,8 +236,9 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 5,
     shadowColor: "#DDDDDD",
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.8
+    shadowOffset: { width: 1, height: 2 },
+    shadowOpacity: 0.8,
+    elevation: 1
   }
 });
 
