@@ -1,8 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Dimensions
+} from "react-native";
 import { reasons, missesImages, alphabet } from "../constants";
 import { connect } from "react-redux";
 import { selectLetter } from "../ducks";
+
+const largePhone = Dimensions.get("window").width > 320;
 
 class GameScreen extends React.Component {
   renderImageContainer = () => {
@@ -172,8 +181,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   containerLetter: {
-    width: 40,
-    height: 40,
+    width: largePhone ? 40 : 30,
+    height: largePhone ? 40 : 30,
     alignItems: "center",
     backgroundColor: "#3d3d5c",
     justifyContent: "center",
@@ -198,8 +207,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   button: {
-    width: 40,
-    height: 40,
+    width: largePhone ? 40 : 30,
+    height: largePhone ? 40 : 30,
     alignItems: "center",
     backgroundColor: "transparent",
     borderStyle: "solid",
@@ -213,8 +222,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8
   },
   buttonOnpress: {
-    width: 40,
-    height: 40,
+    width: largePhone ? 40 : 30,
+    height: largePhone ? 40 : 30,
     alignItems: "center",
     backgroundColor: "#DDDDDD",
     justifyContent: "center",
