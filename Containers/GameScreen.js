@@ -1,20 +1,22 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-  Dimensions,
-  Alert
-} from "react-native";
+import styles from "./styles/GameScreenStyles";
+import { Text, View, Image, TouchableOpacity, Button } from "react-native";
+import Modal from "react-native-modalbox";
 import { reasons, missesImages, alphabet } from "../constants";
 import { connect } from "react-redux";
 import { selectLetter } from "../ducks";
 
-const largePhone = Dimensions.get("window").width > 320;
-
 class GameScreen extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isOpen: false,
+      isDisabled: false,
+      swipeToClose: true,
+      sliderValue: 0.3
+    };
+  }
+
   renderImageContainer = () => {
     let misses = parseInt(this.props.misses);
     return (
@@ -66,30 +68,13 @@ class GameScreen extends React.Component {
   };
 
   componentWillReceiveProps = nextProps => {
-    console.log(this.props.currentReason);
+    console.log("this is current", this.props.currentReason);
+    console.log("this is next", nextProps);
     if (
-      nextProps.currentReason !== this.props.currentReason &&
-      nextProps.currentReason < reasons.length - 1 &&
-      this.props.currentReason === 0
+      nextProps.currentReason !== this.props.currentReason ||
+      (nextProps.started === false && nextProps.allReasonsGuessed)
     ) {
-      Alert.alert(
-        "Hey, Well Done!",
-        "buff, it  was easy let's go to the nex level!",
-        [{ text: "sure!", onPress: () => console.log("OK Pressed") }]
-      );
-    }
-    if (
-      nextProps.currentReason !== this.props.currentReason &&
-      nextProps.currentReason < reasons.length &&
-      this.props.currentReason > 0
-    ) {
-      alert("OMG! almost there");
-    }
-    if (nextProps.started === false && nextProps.allReasonsGuessed) {
-      alert(
-        "yehaaaaaaa!!  congratulation you win a new person in your coding team"
-      );
-      this.props.navigation.navigate("Home");
+      this.refs.modal3.open();
     }
     if (nextProps.started === false && nextProps.allReasonsGuessed === false) {
       alert("You lose");
@@ -131,116 +116,90 @@ class GameScreen extends React.Component {
       </View>
     );
   };
+
+  renderModal = () => {
+    return (
+      <Modal
+        style={[styles.modal, styles.modal3]}
+        position={"center"}
+        ref={"modal3"}
+        isDisabled={this.state.isDisabled}
+      >
+        <View
+          style={{
+            height: "100%",
+            width: "100%",
+            alignContent: "center",
+            justifyContent: "center"
+          }}
+        >
+          {this.props.currentReason === 1 && (
+            <View style={{ flex: 1, alignContent: "center" }}>
+              <Text style={styles.text}>
+                WOO HOO! it was easy, let's go to the next level!
+              </Text>
+
+              <Image
+                style={{ width: "100%", height: "80%" }}
+                resizeMode="contain"
+                source={require("../assets/images/superman.jpg")}
+              />
+            </View>
+          )}
+          {this.props.currentReason === 2 && !this.props.allReasonsGuessed && (
+            <View style={{ flex: 1, alignContent: "center" }}>
+              <Text style={styles.text}>
+                Almost there my friend, just one more!
+              </Text>
+
+              <Image
+                style={{ width: "100%", height: "80%" }}
+                resizeMode="contain"
+                source={require("../assets/images/edna.jpeg")}
+              />
+            </View>
+          )}
+          {this.props.allReasonsGuessed && (
+            <View style={{ flex: 1, alignContent: "center" }}>
+              <Text style={styles.text}>
+                Congratulations, you won a new super programmer on your team!
+              </Text>
+
+              <Image
+                style={{ width: "100%", height: "80%" }}
+                resizeMode="contain"
+                source={require("../assets/images/superheros.jpg")}
+              />
+            </View>
+          )}
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={() => {
+              this.refs.modal3.close();
+              if (this.props.allReasonsGuessed) {
+                this.props.navigation.navigate("Home");
+              }
+            }}
+          >
+            <Text style={{ color: "red", textAlign: "center", fontSize: 20 }}>
+              Close
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
+    );
+  };
   render() {
     return (
       <View style={styles.container}>
         {this.renderImageContainer()}
         {this.renderReasonContainer()}
         {this.renderAlphabetContainer()}
+        {this.renderModal()}
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center"
-  },
-  topContainer: {
-    flex: 1,
-    flexDirection: "row",
-
-    backgroundColor: "#fff"
-  },
-  textTopContainer: {
-    width: "20%",
-    marginTop: 40,
-    marginLeft: 10
-  },
-  imageContainer: {
-    height: "100%",
-    width: "80%",
-    backgroundColor: "#fff",
-    alignItems: "center",
-    backgroundColor: "blue"
-  },
-  imageTop: {
-    width: "100%",
-    height: "100%",
-    position: "absolute",
-    bottom: 0,
-    backgroundColor: "#fff"
-  },
-  ContainerMiddle: {
-    height: "20%",
-    backgroundColor: "#ffffff",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  reasonContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  containerLetter: {
-    width: largePhone ? 40 : 30,
-    height: largePhone ? 40 : 30,
-    alignItems: "center",
-    backgroundColor: "#3d3d5c",
-    justifyContent: "center",
-    margin: 5,
-    borderRadius: 5,
-    shadowColor: "#000",
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.8,
-    elevation: 1
-  },
-
-  containerBottom: {
-    height: "30%",
-    backgroundColor: "#ffffff",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  alphabetContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  button: {
-    width: largePhone ? 40 : 30,
-    height: largePhone ? 40 : 30,
-    alignItems: "center",
-    backgroundColor: "transparent",
-    borderStyle: "solid",
-    borderWidth: 3,
-    borderColor: "#660033",
-    justifyContent: "center",
-    margin: 5,
-    borderRadius: 5,
-    shadowColor: "#660033",
-    shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.8,
-    elevation: 1
-  },
-  buttonOnpress: {
-    width: largePhone ? 40 : 30,
-    height: largePhone ? 40 : 30,
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    justifyContent: "center",
-    margin: 5,
-    borderRadius: 5,
-    shadowColor: "#DDDDDD",
-    shadowOffset: { width: 1, height: 2 },
-    shadowOpacity: 0.8,
-    elevation: 1
-  }
-});
 
 const mapStateToProps = state => {
   return {

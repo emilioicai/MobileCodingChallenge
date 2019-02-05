@@ -30,7 +30,7 @@ class InstructionsScreen extends React.Component {
             1. press on the letters and try to guess the words!
           </Text>
           <Text style={{ marginVertical: 10, color: "#660033", fontSize: 18 }}>
-            2. All words are taken from one of Eugenia's Skill
+            2. All words are taken from one of Eugenia's Skills
           </Text>
           <Text style={{ marginVertical: 10, color: "#008080", fontSize: 18 }}>
             3. Only 3 word to guess

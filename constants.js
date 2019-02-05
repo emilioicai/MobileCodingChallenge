@@ -1,4 +1,4 @@
-export const reasons = ["motivated", "persistent", "fun"];
+export const reasons = ["reliable", "motivated", "fun"];
 export const maxMisses = 6;
 export const missesImages = [
   require("./assets/images/misses0.png"),

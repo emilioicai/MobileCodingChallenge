@@ -1,3 +1,5 @@
+// Created using the ducks pattern (https://github.com/erikras/ducks-modular-redux)
+
 import { reasons, maxMisses } from "../constants";
 import { areAllLetterSelected } from "../utilities";
 
